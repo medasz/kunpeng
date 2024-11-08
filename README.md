@@ -1,6 +1,6 @@
 # Kunpeng
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)](https://github.com/opensec-cn/kunpeng/blob/master/LICENSE) [![Golang](https://img.shields.io/badge/Golang-1.10-yellow.svg?style=flat-square)](https://www.golang.org/) 
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)](https://github.com/medasz/kunpeng/blob/master/LICENSE) [![Golang](https://img.shields.io/badge/Golang-1.10-yellow.svg?style=flat-square)](https://www.golang.org/) 
 
 
 ## 简介
@@ -164,7 +164,7 @@ package goplugin
 // 引入plugin
 import (
 	"fmt"
-	"github.com/opensec-cn/kunpeng/plugin"
+	"github.com/medasz/kunpeng/plugin"
 	"github.com/go-redis/redis"
 )
 
@@ -234,8 +234,8 @@ package goplugin
 import (
 	"net/http"
 	"strings"
-	"github.com/opensec-cn/kunpeng/util"
-	"github.com/opensec-cn/kunpeng/plugin"
+	"github.com/medasz/kunpeng/util"
+	"github.com/medasz/kunpeng/plugin"
 )
 
 type webDavRCE struct {
@@ -337,8 +337,8 @@ func (d *webDavRCE) Check(URL string, meta plugin.TaskMeta) bool {
 **注意, 第三方库管理已更改为GoMod**
 
 ```shell
-go get -d github.com/opensec-cn/kunpeng
-cd $GOPATH/src/github.com/opensec-cn/kunpeng
+go get -d github.com/medasz/kunpeng
+cd $GOPATH/src/github.com/medasz/kunpeng
 
 
 # 静态资源打包进工程的小程序
@@ -362,5 +362,5 @@ go run example/callsoTest.go
 
 ![img](doc/img.png)
 
-[releases]: https://github.com/opensec-cn/kunpeng/releases
+[releases]: https://github.com/medasz/kunpeng/releases
 [example]: https://github.com/ywolf/kunpeng/tree/master/example

@@ -2,7 +2,7 @@ package util
 
 import (
 	"crypto/tls"
-	. "github.com/opensec-cn/kunpeng/config"
+	. "github.com/medasz/kunpeng/config"
 	"io/ioutil"
 	"net"
 	"net/http"

@@ -6,8 +6,8 @@ import (
 	"strings"
 
 	_ "github.com/go-sql-driver/mysql"
-	. "github.com/opensec-cn/kunpeng/config"
-	"github.com/opensec-cn/kunpeng/plugin"
+	. "github.com/medasz/kunpeng/config"
+	"github.com/medasz/kunpeng/plugin"
 )
 
 type mysqlWeakPass struct {

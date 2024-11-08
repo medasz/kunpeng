@@ -2,8 +2,8 @@ package goplugin
 
 import (
 	"fmt"
-	. "github.com/opensec-cn/kunpeng/config"
-	"github.com/opensec-cn/kunpeng/plugin"
+	. "github.com/medasz/kunpeng/config"
+	"github.com/medasz/kunpeng/plugin"
 	"gopkg.in/mgo.v2"
 	"strings"
 	"time"

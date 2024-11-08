@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	_ "github.com/denisenkom/go-mssqldb"
-	"github.com/opensec-cn/kunpeng/plugin"
+	"github.com/medasz/kunpeng/plugin"
 )
 
 type mssqlWeakPass struct {

@@ -6,3 +6,4 @@ kunpeng_c.h
 /.vscode/
 /plugin/json/JSONPlugin.go
 *.py[cod]
+.idea

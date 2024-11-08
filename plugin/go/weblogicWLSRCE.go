@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/opensec-cn/kunpeng/plugin"
-	"github.com/opensec-cn/kunpeng/util"
+	"github.com/medasz/kunpeng/plugin"
+	"github.com/medasz/kunpeng/util"
 )
 
 type weblogicWLSRCE struct {

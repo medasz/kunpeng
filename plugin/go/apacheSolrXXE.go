@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/opensec-cn/kunpeng/plugin"
-	"github.com/opensec-cn/kunpeng/util"
+	"github.com/medasz/kunpeng/plugin"
+	"github.com/medasz/kunpeng/util"
 )
 
 type apacheSolrXXE struct {

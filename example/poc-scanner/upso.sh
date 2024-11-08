@@ -2,7 +2,7 @@
 
 set -e
 set -x
-KUNPENG_SRC="$GOPATH/src/github.com/opensec-cn/kunpeng"
+KUNPENG_SRC="$GOPATH/src/github.com/medasz/kunpeng"
 CWD=`pwd`
 
 cd ${KUNPENG_SRC} 

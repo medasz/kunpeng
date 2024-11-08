@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	. "github.com/opensec-cn/kunpeng/config"
-	"github.com/opensec-cn/kunpeng/plugin"
+	. "github.com/medasz/kunpeng/config"
+	"github.com/medasz/kunpeng/plugin"
 	"golang.org/x/net/proxy"
 )
 

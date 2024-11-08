@@ -2,13 +2,16 @@ package jsonplugin
 
 import (
 	"encoding/json"
-	. "github.com/opensec-cn/kunpeng/config"
-	"github.com/opensec-cn/kunpeng/plugin"
-	"github.com/opensec-cn/kunpeng/util"
+	"errors"
+	. "github.com/medasz/kunpeng/config"
+	"github.com/medasz/kunpeng/plugin"
+	"github.com/medasz/kunpeng/util"
 	"io/ioutil"
 	"net/http"
 	"os"
 	"path"
+	"path/filepath"
+	"runtime"
 	"strings"
 	"time"
 )
@@ -17,7 +20,11 @@ var extraPluginCache []string
 
 func init() {
 	// util.Logger.Println("init json plugin")
-	loadJSONPlugin(false, "/plugin/json/")
+	_, currentFile, _, ok := runtime.Caller(0)
+	if !ok {
+		panic(errors.New("runtime.Caller(0) fail"))
+	}
+	loadJSONPlugin(false, filepath.Dir(currentFile))
 	go loadExtraJSONPlugin()
 }
 
@@ -29,14 +36,10 @@ func readPlugin(useLocal bool, filePath string) (p plugin.JSONPlugin, ok bool) {
 	if strings.ToLower(path.Ext(filePath)) != ".json" {
 		return p, false
 	}
-	if useLocal {
-		pluginBytes, err = ioutil.ReadFile(filePath)
-		if err != nil {
-			util.Logger.Error(err.Error(), filePath)
-			return p, false
-		}
-	} else {
-		pluginBytes = FSMustByte(useLocal, filePath)
+	pluginBytes, err = ioutil.ReadFile(filePath)
+	if err != nil {
+		util.Logger.Error(err.Error(), filePath)
+		return p, false
 	}
 	err = json.Unmarshal(pluginBytes, &p)
 	if err != nil {
@@ -50,18 +53,10 @@ func readPlugin(useLocal bool, filePath string) (p plugin.JSONPlugin, ok bool) {
 func loadJSONPlugin(useLocal bool, pluginPath string) {
 	var f http.File
 	var err error
-	if useLocal {
-		f, err = os.Open(pluginPath)
-		if err != nil {
-			util.Logger.Error(err.Error())
-			return
-		}
-	} else {
-		f, err = FS(useLocal).Open(pluginPath)
-		if err != nil {
-			util.Logger.Error(err.Error())
-			return
-		}
+	f, err = os.Open(pluginPath)
+	if err != nil {
+		util.Logger.Error(err.Error())
+		return
 	}
 	defer f.Close()
 	fileList, err := f.Readdir(2000)
@@ -71,7 +66,7 @@ func loadJSONPlugin(useLocal bool, pluginPath string) {
 	}
 	var extarPluginNameList []string
 	for _, v := range fileList {
-		p, ok := readPlugin(useLocal, pluginPath+v.Name())
+		p, ok := readPlugin(useLocal, filepath.Join(pluginPath, v.Name()))
 		if !ok {
 			continue
 		}

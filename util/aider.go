@@ -1,10 +1,10 @@
 package util
 
 import (
+	. "github.com/medasz/kunpeng/config"
 	"net/http"
 	"strings"
 	"time"
-	. "github.com/opensec-cn/kunpeng/config"
 )
 
 // AiderCheck 辅助验证，使用标识字符串判断漏洞是否存在（触发漏洞会把标识字符串传输到辅助脚本上，如果查询存在，说明存在漏洞）

@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"github.com/jlaffaye/ftp"
-	"github.com/opensec-cn/kunpeng/plugin"
+	"github.com/medasz/kunpeng/plugin"
 )
 
 type ftpWeakPass struct {

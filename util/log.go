@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/opensec-cn/kunpeng/config"
+	"github.com/medasz/kunpeng/config"
 )
 
 type logger struct {
@@ -18,7 +18,7 @@ type logger struct {
 	bufferLogLen int
 }
 
-//最大buffer可以放的字符串长度
+// 最大buffer可以放的字符串长度
 const maxBufferLogLen = 4096
 
 // Logger 日志打印
@@ -57,7 +57,7 @@ func (l *logger) Error(logs ...interface{}) {
 	}
 }
 
-//缓存所有的log数据到一个切片当中，用来返回给调用的第三方
+// 缓存所有的log数据到一个切片当中，用来返回给调用的第三方
 func (l *logger) Buffer(logs ...interface{}) {
 	if l.bufferStart {
 		//为防止内存泄露,加上了最大长度限制
@@ -69,14 +69,14 @@ func (l *logger) Buffer(logs ...interface{}) {
 	}
 }
 
-//开启缓存
+// 开启缓存
 func (l *logger) StartBuffer() {
 	l.bufferStart = true
 }
 
-//完成两个功能
-//重置归位，释放使用的内存
-//返回buffer当中的内容，用 sep 连接起来
+// 完成两个功能
+// 重置归位，释放使用的内存
+// 返回buffer当中的内容，用 sep 连接起来
 func (l *logger) BufferContent(sep string) string {
 	message := strings.Join(l.buffer, sep)
 	l.buffer = make([]string, 0, 0)

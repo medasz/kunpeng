@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"github.com/go-redis/redis"
-	"github.com/opensec-cn/kunpeng/plugin"
+	"github.com/medasz/kunpeng/plugin"
 )
 
 type redisWeakPass struct {

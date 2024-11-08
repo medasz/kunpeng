@@ -3,8 +3,8 @@ package plugin
 
 import (
 	"fmt"
-	. "github.com/opensec-cn/kunpeng/config"
-	"github.com/opensec-cn/kunpeng/util"
+	. "github.com/medasz/kunpeng/config"
+	"github.com/medasz/kunpeng/util"
 	"sort"
 	"strconv"
 	"strings"
@@ -32,7 +32,7 @@ type TaskMeta struct {
 	PassList []string `json:"passlist"`
 }
 
-//References 插件附加信息
+// References 插件附加信息
 type References struct {
 	URL  string `json:"url"`
 	CVE  string `json:"cve"`
